@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Heco Yearn Finance</title>
+	<link rel="stylesheet" href="rev/all-4ee6583d60.min.css" />
+	<link rel="icon" type="image/x-icon" href='img/bitbug_favicon.ico' />
+	<style>
+		.header {
+			background: url(../img/bg.jpg) no-repeat;
+			background-size: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		
+		<div class="header">
+
+			<!--header start-->
+
+			<div class="head_box">
+
+				<div class="navtop">
+					<div class="showNavBtn" onclick="document.getElementById('slider').classList.add('closed');"><img
+							src="img/more.png" alt="" width="100%"></div>
+							<div class="pc-nav">
+								<ul>
+									<li> <a href="index.html">{{langItem.index}}</a></li>
+									<li><a href="pool1.html" class="in">{{langItem.main}}1</a></li>
+									<li><a href="pool2.html">{{langItem.main}}2</a></li>
+									<li><a href="pool3.html">{{langItem.main}}3</a></li>
+									<li><a href="vaults.html">{{langItem.vaults}}</a></li>
+									<li><a href="nft.html">NFT</a></li>
+									<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+								</ul>
+							</div>
+					<div class="showLangBtn" @click="getLang">LANG&nbsp;<img src="img/down.png" alt="" width="10"></div>
+
+					<div class="nav_mobile" v-show="showNav">
+						<div class="bg">
+							<ul>
+								<li v-for="(value,index) in langList" @click="changeLang(index)">{{value}}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<a href="index.html" class="logoMin"><img src="img/logo-min.png" alt="" width="150"></a>
+
+				<div class="pc_logo">
+					<img src="img/youxi-logo.png" width="100" class="img_in">
+					<h1 id="title_h1">{{langItem.welcome}}{{langItem.main}}1</h1>
+				</div>	
+				<div class="logo">
+					<img src="img/youxi-logo.png" width="100" class="img_in">
+					<h1 id="title_h1">{{langItem.welcome}}{{langItem.main}}1</h1>
+				</div>
+
+			</div>
+
+
+		</div>
+			<div class="nav_mobile" v-show="showNav">
+				<div class="bg">
+					<ul>
+						<li v-for="(value,index) in langList" @click="changeLang(index)">{{value}}</li>
+					</ul>
+				</div>
+			</div>
+		<!-- <a href="index.html" class="logoMin"><img src="img/logo-min.png" alt="" width="150"></a> -->
+		<div class="numeBox" id="slider">
+			<i onclick="document.getElementById('slider').classList.remove('closed');"></i>
+			<ul>
+				<li> <a href="index.html">{{langItem.index}}</a></li>
+				<li><a href="pool1.html">{{langItem.main}}1</a></li>
+				<li><a href="pool2.html">{{langItem.main}}2</a></li>
+				<li><a href="pool3.html">{{langItem.main}}3</a></li>
+				<li><a href="vaults.html">{{langItem.vaults}}</a></li>
+				<li><a href="nft.html">NFT</a></li>
+				<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+			</ul>
+		</div>
+		<!--header end-->
+		<div class="web">
+
+		
+		<div class="biList">
+			<div class="logo-bi"><img src="img/HT.png" alt="" width="35"  class="bi_img"> x <img src="img/HTYFI.png" alt="" width="25" class="bi_img"></div>
+			<h2>HT - HTYFI</h2>
+			<h3>{{langItem.deposit}}HT{{langItem.picking}} HTYFI</h3>
+			<h4>{{langItem.num}}：2500HTYFI</h4>
+			<a  class="a_go_HTYFI" href="pool1Zone.html?type=HT">{{langItem.kuang}}</a>
+			<p style="  margin-top: 10px;">{{langItem.contracts}}：<a class="go_contracts" href="https://scan.hecochain.com/address/0xb5fbc6456eb295178436e8295e26a32503beed2d#contracts">{{ changeToStar('0xb5fbc6456eb295178436e8295e26a32503beed2d',10,5) }} </a></p>
+		</div>
+		<div class="biList">
+			<div class="logo-bi"><img src="img/DOT.png" alt="" width="30"  class="bi_img"> x <img src="img/HTYFI.png" alt="" width="25" class="bi_img"></div>
+			<h2>DOT - HTYFI</h2>
+			<h3>{{langItem.deposit}}DOT{{langItem.picking}} HTYFI</h3>
+			<h4>{{langItem.num}}：2000HTYFI</h4>
+			<a href="pool1Zone.html?type=DOT" class="a_go_HTYFI">{{langItem.kuang}}</a>
+			<p style="  margin-top: 10px;">{{langItem.contracts}}：<a class="go_contracts" href="https://scan.hecochain.com/address/0x969b8d832ada7a23907c39d3a01957c3857d461f#contracts">{{ changeToStar('0x969b8d832ada7a23907c39d3a01957c3857d461f',10,5) }} </a></p>
+
+		</div>
+		<div class="biList">
+			<div class="logo-bi"><img src="img/CIR.png" alt="" width="30"  class="bi_img"> x <img src="img/HTYFI.png" alt="" width="25" class="bi_img"></div>
+			<h2>CIR - HTYFI</h2>
+			<h3>{{langItem.deposit}}CIR{{langItem.picking}} HTYFI</h3>
+			<h4>{{langItem.num}}：1500HTYFI</h4>
+			<a href="pool1Zone.html?type=CIR" class="a_go_HTYFI">{{langItem.kuang}}</a>
+			<p style="  margin-top: 10px;">{{langItem.contracts}}：<a class="go_contracts" href="https://scan.hecochain.com/address/0x0a33778246295c2d735ed301f791ffc305ff0473#contracts">{{ changeToStar('0x0a33778246295c2d735ed301f791ffc305ff0473',10,5) }} </a></p>
+
+		</div>
+		<div class="biList">
+			<div class="logo-bi"><img src="img/ETH.png" alt="" width="30"  class="bi_img"> x <img src="img/HTYFI.png" alt="" width="25" class="bi_img"></div>
+			<h2>ETH - HTYFI</h2>
+			<h3>{{langItem.deposit}}ETH{{langItem.picking}} HTYFI</h3>
+			<h4>{{langItem.num}}：1000HTYFI</h4>
+			<a href="pool1Zone.html?type=ETH" class="a_go_HTYFI">{{langItem.kuang}}</a>
+			<p style="  margin-top: 10px;">{{langItem.contracts}}：<a class="go_contracts" href="https://scan.hecochain.com/address/ 0xe4896174cd459f0a8946639fa4e09045388163a9#contracts">{{ changeToStar(' 0xe4896174cd459f0a8946639fa4e09045388163a9',10,5) }} </a></p>
+
+		</div>
+		<div class="biList">
+			<div class="logo-bi"><img src="img/USDT.png" alt="" width="30"  class="bi_img"> x <img src="img/HTYFI.png" alt="" width="25" class="bi_img"></div>
+			<h2>USDT - HTYFI</h2>
+			<h3>{{langItem.deposit}}USDT{{langItem.picking}} HTYFI</h3>
+			<h4>{{langItem.num}}：1000HTYFI</h4>
+			<a href="pool1Zone.html?type=USDT" class="a_go_HTYFI">{{langItem.kuang}}</a>
+			<p style="  margin-top: 10px;">{{langItem.contracts}}：<a class="go_contracts" href="https://scan.hecochain.com/address/0x1adf64be5f4076f946e11acd3e20430b9626a747#contracts">{{ changeToStar('0x1adf64be5f4076f946e11acd3e20430b9626a747',10,5) }} </a></p>
+
+		</div>
+		
+		<div class="biList">
+			<div class="logo-bi"><img src="img/MDX.png" alt="" width="30"  class="bi_img"> x <img src="img/HTYFI.png" alt="" width="25" class="bi_img"></div>
+			<h2>MDX - HTYFI</h2>
+			<h3>{{langItem.deposit}}MDX{{langItem.picking}} HTYFI</h3>
+			<h4>{{langItem.num}}：1000HTYFI</h4>
+			<a href="pool1Zone.html?type=MDX" class="a_go_HTYFI">{{langItem.kuang}}</a>
+			<p style="  margin-top: 10px;">{{langItem.contracts}}：<a class="go_contracts" href="https://scan.hecochain.com/address/0xa62a71742870ac477b6bc0bbb7e5ad5f20a43445#contracts">{{ changeToStar('0xa62a71742870ac477b6bc0bbb7e5ad5f20a43445',10,5) }} </a></p>
+
+		</div>
+		<div class="biList">
+			<div class="logo-bi"><img src="img/BXC.png" alt="" width="30"  class="bi_img"> x <img src="img/HTYFI.png" alt="" width="25" class="bi_img"></div>
+			<h2>BXC - HTYFI</h2>
+			<h3>{{langItem.deposit}}BXC{{langItem.picking}} HTYFI</h3>
+			<h4>{{langItem.num}}：500HTYFI</h4>
+			<a href="pool1Zone.html?type=BXC" class="a_go_HTYFI">{{langItem.kuang}}</a>
+			<p style="  margin-top: 10px;">{{langItem.contracts}}：<a class="go_contracts" href="https://scan.hecochain.com/address/0x7f81d6511c4cb28dc7b8d7848222b4b68f25ba70#contracts">{{ changeToStar('0x7f81d6511c4cb28dc7b8d7848222b4b68f25ba70',10,5) }} </a></p>
+
+		</div>
+		<div class="biList">
+			<div class="logo-bi"><img src="img/BXS.png" alt="" width="30"  class="bi_img"> x <img src="img/HTYFI.png" alt="" width="25" class="bi_img"></div>
+			<h2>BXS - HTYFI</h2>
+			<h3>{{langItem.deposit}}BXS{{langItem.picking}} HTYFI</h3>
+			<h4>{{langItem.num}}：500HTYFI</h4>
+			<a href="pool1Zone.html?type=BXS" class="a_go_HTYFI">{{langItem.kuang}}</a>
+			<p style="  margin-top: 10px;">{{langItem.contracts}}：<a class="go_contracts" href="https://scan.hecochain.com/address/0x174e4292890d9761faed9214574db303a7f7d563#contracts">{{ changeToStar('0x174e4292890d9761faed9214574db303a7f7d563',10,5) }} </a></p>
+
+
+		</div>
+	</div>
+	<div style="clear: both;"></div>
+		<div class="bottom">
+			<div>
+		
+			    <a href="https://twitter.com/Hecoyearn"><img src="img/defi_3.png" width="20"> </a>
+				<a href="https://t.me/hecoyearnfinance"><img src="img/defi_4.png" width="20"></a>
+				<a href="https://www.facebook.com/Capsule-Protocol-108231297757157/"><img src="img/defi_5.png"
+						width="20"> </a>
+		</div>
+	</div>
+</body>
+
+</html>
+<script>document.write('<script src="rev/max_all.js?t=' + new Date().getTime() + '"><\/script>')</script>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Heco Yearn Finance</title>
+	<link rel="stylesheet" href="rev/all-4ee6583d60.min.css" />
+	<link rel="icon" type="image/x-icon" href='img/bitbug_favicon.ico' />
+</head>
+
+<body>
+	<div id="app" v-cloak>
+
+		<div class="header">
+
+			<!--header start-->
+
+			<div class="head_box">
+
+				<div class="navtop">
+
+					<div class="showNavBtn" onclick="document.getElementById('slider').classList.add('closed');"><img
+							src="img/more.png" alt="" width="100%"></div>
+					<div class="pc-nav">
+						<ul>
+							<li> <a href="#" class="in">{{langItem.index}}</a></li>
+							<li><a href="pool1.html">{{langItem.main}}1</a></li>
+							<li><a href="pool2.html">{{langItem.main}}2</a></li>
+							<li><a href="pool3.html">{{langItem.main}}3</a></li>
+							<li><a href="vaults.html">{{langItem.vaults}}</a></li>
+							<li><a href="nft.html">NFT</a></li>
+							<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+						</ul>
+					</div>
+					<div class="showLangBtn" @click="getLang">LANG &nbsp;<img src="img/down.png" alt="" width="10">
+					</div>
+					
+					<div class="nav_mobile" v-show="showNav">
+						<div class="bg">
+							<ul>
+								<li v-for="(value,index) in langList" @click="changeLang(index)">{{value}}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<a href="index.html" class="logoMin"><img src="img/logo-min.png" alt="" width="150"></a>
+
+				<div class="pc_logo">
+					<img src="img/bg-pc.png" alt="" >
+				</div>				
+				<div class="logo">
+					<img src="img/capshouye-_06.png" alt="" width="100%">
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+		<div class="numeBox" id="slider">
+			<i onclick="document.getElementById('slider').classList.remove('closed');"></i>
+			<ul>
+				<li> <a href="#">{{langItem.index}}</a></li>
+				<li><a href="pool1.html">{{langItem.main}}1</a></li>
+				<li><a href="pool2.html">{{langItem.main}}2</a></li>
+				<li><a href="pool3.html">{{langItem.main}}3</a></li>
+				<li><a href="vaults.html">{{langItem.vaults}}</a></li>
+				<li><a href="nft.html">NFT</a></li>
+				<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+			</ul>
+		</div>
+		<!--header end-->
+		<div class="web">
+			<div class="liu"><p>{{userInfo.totalCdt}} HTYFI</p></div>
+			<div class="zong">HTYFI {{langItem.liu}}</div>
+
+			<div class="area area4">
+				<h1>HYFII{{langItem.st}}</h1>
+				<img src="img/HTYFI_07.png" class="img_in">
+				<h3 class="price ">50000 {{langItem.unit}}</h3>
+				<div class="top">
+					<h4>{{langItem.js}}</h4>
+					<h4>{{langItem.sl}}<span>8{{langItem.work}}</span>{{langItem.wanc}},<span>{{langItem.weekly}}</span></h4>
+				</div>
+				<div class="btn">
+					<a href="pool1Zone.html?type=HYFII">{{langItem.into}}{{langItem.st}}</a>
+				</div>
+			</div>
+
+			<div class="area area1">
+				<img src="img/capshouye-_09.png" width="80" class="img_in">
+				<h3 class="price ">{{langItem.main}}1</h3>
+				<div class="top">
+					<h4>{{langItem.dan}}HTYFI{{langItem.wa}}<span>1{{langItem.danw}}</span></h4>
+					<h4>{{langItem.zahn}}<span>10%,48H</span>{{langItem.wanc}}</h4>
+				</div>
+				<div class="btn">
+					<a href="pool1.html">{{langItem.join_a}}1</a>
+				</div>
+			</div>
+
+			<div class="area area2">
+				<img src="img/capshouye-_09.png" width="80" class="img_in">
+				<h3 class="price ">{{langItem.main}}2</h3>
+				<div class="top">
+					<h4>HYFI LP{{langItem.stake}}{{langItem.wa}}HTYFI，{{langItem.wa}}<span>3{{langItem.danw}}</span></h4>
+					<h4>{{langItem.zahn}}<span>30%</span>{{langItem.week}}，<span>8{{langItem.work}}</span>{{langItem.wanc}}</h4>
+				</div>
+				<div class="btn">
+					<a href="pool2.html">{{langItem.join_a}}2</a>
+					<a
+						href="https://circleswap.org/#/add/0xa71EdC38d189767582C38A3145b5873052c3e47a/0x7Ae1eA942C763c48a42d0B638C900F6729FEA182">{{langItem.waKuang}}</a>
+				</div>
+			</div>
+			<div class="area area3">
+				<img src="img/capshouye-_09.png" width="80" class="img_in">
+				<h3 class="price ">{{langItem.main}}3</h3>
+				<div class="top">
+					<h4>HTYFI LP{{langItem.stake}}{{langItem.wa}}HTYFI，{{langItem.wa}}<span>6{{langItem.danw}}</span></h4>
+					<h4>{{langItem.zahn}}<span>60%</span>{{langItem.week}}，<span>8{{langItem.work}}</span>{{langItem.wanc}}</h4>
+				</div>
+				<div class="btn">
+					<a href="pool3.html">{{langItem.join_a}}3</a>
+					<a
+						href="#">{{langItem.waKuang}}</a>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+			<div class="cont">
+				<div class="col">
+					<div class="title">
+						<h2>Heco YearnFinance</h2>
+					</div>
+					<img src="img/capshouye-_13.png" width="80" class="img_in one">
+					<h1>HYF</h1>
+					<p>{{langItem.introduce}}</p>
+				</div>
+				<div class="col">
+					<div class="title">
+						<h2>{{langItem.product}}</h2>
+					</div>
+					<img src="img/capshouye-_21.png" width="90%" class="img_in two"  style="margin-bottom: 30px;">
+					<p><i></i><span>{{langItem.primary}}：</span>{{langItem.primary_txt}}</p>
+					<p><i></i><span>{{langItem.innova}}：</span>{{langItem.innova_txt}}</p>
+					<p><i></i><span>{{langItem.vaults}}：</span>{{langItem.vaults_txt}}</p>
+				</div>
+				<div class="col">
+					<div class="title">
+						<h2>{{langItem.symbol}}</h2>
+					</div>
+					<img src="img/capshouye-_25.png" width="100" class="img_in tree" style="margin:0 20px">
+					<img src="img/capshouye-_28.png" width="100" class="img_in tree" style="margin:0 20px">
+				</div>
+
+				<div class="bottom">
+					<div>
+						<a href="https://twitter.com/Hecoyearn"><img src="img/defi_3.png" width="20"> </a>
+						<a href="https://t.me/hecoyearnfinance"><img src="img/defi_4.png" width="20"></a>
+						<a href="https://www.facebook.com/Capsule-Protocol-108231297757157/"><img src="img/defi_5.png"
+								width="20"> </a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+</body>
+
+</html>
+<script>document.write('<script src="rev/max_all.js?t=' + new Date().getTime() + '"><\/script>')</script>

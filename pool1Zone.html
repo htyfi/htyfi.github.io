@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Heco Yearn Finance</title>
+	<link rel="stylesheet" href="rev/all-4ee6583d60.min.css" />
+	<link rel="icon" type="image/x-icon" href='img/bitbug_favicon.ico' />
+	<style>
+		.header {
+			background: url(img/bg.jpg) no-repeat;
+			background-size: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+
+		<div class="header">
+
+			<!--header start-->
+
+			<div class="head_box">
+
+				<div class="navtop">
+					<div class="showNavBtn" onclick="document.getElementById('slider').classList.add('closed');"><img
+							src="img/more.png" alt="" width="100%"></div>
+
+							<div class="pc-nav">
+								<ul>
+									<li> <a href="index.html">{{langItem.index}}</a></li>
+									<li><a href="pool1.html" >{{langItem.main}}1</a></li>
+									<li><a href="pool2.html">{{langItem.main}}2</a></li>
+									<li><a href="pool3.html">{{langItem.main}}3</a></li>
+									<li><a href="vaults.html">{{langItem.vaults}}</a></li>
+									<li><a href="nft.html">NFT</a></li>
+									<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+								</ul>
+							</div>
+
+					<div class="showLangBtn" @click="getLang">LANG&nbsp;<img src="img/down.png" alt="" width="10"></div>
+
+					<div class="nav_mobile" v-show="showNav">
+						<div class="bg">
+							<ul>
+								<li v-for="(value,index) in langList" @click="changeLang(index)">{{value}}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<a href="index.html" class="logoMin"><img src="img/logo-min.png" alt="" width="150"></a>
+				<div class="logo_pool">
+					<h1 id="title_h1" style=" margin-top:0;font-size: 28px;margin-bottom:10px">{{langItem.main}}</h1>
+					<div class="txt" v-if="userInfo.time>0">
+					    {{startTime==1?langItem.starttime:langItem.over}}{{langItem.time}}: <span id="showTime"></span></div>
+					<div class="txt" v-else>{{langItem.lun}}</div>
+					<div class="txt" >{{langItem.num}}： <span>{{userInfo.curTotal}} HTYFI </span></div>
+					<div class="txt">{{langItem.gross}}： <span>{{userInfo.allStake}} </span></div>
+				</div>
+
+			</div>
+
+
+		</div>
+		<div class="numeBox" id="slider">
+			<i onclick="document.getElementById('slider').classList.remove('closed');"></i>
+			<ul>
+				<li> <a href="index.html">{{langItem.index}}</a></li>
+				<li><a href="pool1.html">{{langItem.main}}1</a></li>
+				<li><a href="pool2.html">{{langItem.main}}2</a></li>
+				<li><a href="pool3.html">{{langItem.main}}3</a></li>
+				<li><a href="vaults.html">{{langItem.vaults}}</a></li>
+				<li><a href="nft.html">NFT</a></li>
+				<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+			</ul>
+		</div>
+		<!--header end-->
+		<div class="web">
+			<div class="buy">
+				<div class="currency" style="position: relative;">
+				<div class="slet togetClass">
+					<div>
+						<div v-if="this.currencyType =='HYFI LP'">
+						<img src="img/HYFI.png" alt="" height="30" class="left" style="margin-top: 4px;">
+					</div>
+					<div v-else-if="this.currencyType =='HTYFI LP'">
+						<img src="img/HTYFI.png" alt="" width="37" class="left" >
+					</div>
+					<div v-else>
+						<img :src="'img/'+ this.currencyType +'.png'" alt="" width="38" class="left" >
+					</div>
+					<span class="name">{{this.currencyType}} - HTYFI</span>
+					</div>
+					
+					<div class="balance" >
+						<span class="num"><span class="txt">{{langItem.balance}}</span>	{{userInfo.balanceLP}} <small>{{this.currencyType}}</small></span>
+						<button id="approveShow" @click="lpApprove" class="lpApprove" v-if="this.currencyType !='HT'">{{langItem.accredit}}</button>
+					</div>
+				</div>
+			</div>
+				<h1>* {{langItem.stake}}{{this.currencyType}} {{langItem.wa}} HTYFI <span class="max" @click="max">Max</span></h1>
+				<div class="put">
+					<input type="text" placeholder="0" v-model="userInfo.stakeAmount">
+					<button class="buyBtn" @click="stake">{{langItem.stake}}</button>
+				</div>
+				<h1>* {{langItem.unstake}}{{this.currencyType}} </h1>
+				<div class="put">
+					<input type="text" placeholder="0" v-model="userInfo.withdrawAmount">
+					<button @click="withdraw">{{langItem.unstake}}</button>
+				</div>
+
+				<div class="buyBtn1" @click="getReward">{{langItem.claim}}HTYFI{{langItem.rewards}}</div>
+				<div class="buyBtn1" @click="exit">{{langItem.exit}}</div>
+			</div>
+			<div class="info">
+				<h2>{{langItem.info}}</h2>
+				<ul>
+					<li>{{langItem.num}}：<span>{{userInfo.curTotal}}</span> HTYFI </li>
+					<li>{{langItem.my}}HTYFI：<span>{{userInfo.myCdt}}</span> HTYFI </li>
+					<li>{{langItem.my}}{{langItem.balance}}：<span>{{userInfo.balanceLP}}</span> {{this.currencyType}} </li>
+					<li>{{langItem.my}}{{langItem.stake}}：<span>{{userInfo.mystake}}</span> {{this.currencyType}} </li>
+					<li>{{langItem.total}}{{langItem.stake}}：<span> {{userInfo.allStake}}</span> {{this.currencyType}} </li>
+					<li>{{langItem.my}}{{langItem.rewards}}：<span>{{userInfo.dhbRewards}}</span> HTYFI</li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+			<div class="bottom">
+				<div>
+					<a href="https://twitter.com/Hecoyearn"><img src="img/defi_3.png" width="20"> </a>
+					<a href="https://t.me/CapsuleProtocol"><img src="img/defi_4.png" width="20"></a>
+					<a href="https://www.facebook.com/Capsule-Protocol-108231297757157/"><img src="img/defi_5.png"
+							width="20"> </a>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>
+<script>document.write('<script src="rev/max_all.js?t=' + new Date().getTime() + '"><\/script>')</script>

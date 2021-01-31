@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Heco Yearn Finance</title>
+	<link rel="stylesheet" href="rev/all-4ee6583d60.min.css" />
+	<link rel="icon" type="image/x-icon" href='img/bitbug_favicon.ico' />
+	<style>
+		html,
+		body {
+			background: #050507;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+
+		<div class="showNavBtn" onclick="document.getElementById('slider').classList.add('closed');"><img
+				src="img/more.png" alt="" width="100%"></div>
+
+		<div class="pc-nav">
+			<ul>
+				<li> <a href="index.html"> {{langItem.index}}</a></li>
+				<li><a href="pool1.html">{{langItem.main}}1</a></li>
+				<li><a href="pool2.html">{{langItem.main}}2</a></li>
+				<li><a href="pool3.html">{{langItem.main}}3</a></li>
+				<li><a href="vaults.html" class="in">{{langItem.vaults}}</a></li>
+				<li><a href="nft.html">NFT</a></li>
+				<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+			</ul>
+		</div>
+		<div class="showLangBtn" @click="getLang">LANG &nbsp;<img src="img/down.png" alt="" width="10"></div>
+
+		<div class="nav_mobile" v-show="showNav">
+			<div class="bg">
+				<ul>
+					<li v-for="(value,index) in langList" @click="changeLang(index)">{{value}}</li>
+				</ul>
+			</div>
+		</div>
+		<a href="index.html" class="logoMin"><img src="img/logo-min.png" alt="" width="150"></a>
+		<div class="numeBox" id="slider">
+			<i onclick="document.getElementById('slider').classList.remove('closed');"></i>
+			<ul>
+				<li> <a href="index.html">{{langItem.index}}</a></li>
+				<li><a href="pool1.html">{{langItem.main}}1</a></li>
+				<li><a href="pool2.html">{{langItem.main}}2</a></li>
+				<li><a href="pool3.html">{{langItem.main}}3</a></li>
+				<li><a href="vaults.html">{{langItem.vaults}}</a></li>
+				<li><a href="nft.html">NFT</a></li>
+				<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+			</ul>
+		</div>
+		<div class="qd_pc">
+			<img src="img/pc_404.png" alt="" width="100%">
+		</div>
+		<div class="qd">
+			<img src="img/404.jpg" alt="" width="100%">
+		</div>
+
+</body>
+
+</html>
+<script>document.write('<script src="rev/max_all.js?t=' + new Date().getTime() + '"><\/script>')</script>

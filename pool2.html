@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Heco Yearn Finance</title>
+	<link rel="stylesheet" href="rev/all-4ee6583d60.min.css" />
+	<link rel="icon" type="image/x-icon" href='img/bitbug_favicon.ico' />
+	<style>
+		.header {
+			background: url(../img/bg.jpg) no-repeat;
+			background-size: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		
+		<div class="header">
+
+			<!--header start-->
+
+			<div class="head_box">
+
+				<div class="navtop">
+					<div class="showNavBtn" onclick="document.getElementById('slider').classList.add('closed');"><img
+							src="img/more.png" alt="" width="100%"></div>
+							<div class="pc-nav">
+								<ul>
+									<li> <a href="index.html">{{langItem.index}}</a></li>
+									<li><a href="pool1.html" >{{langItem.main}}1</a></li>
+									<li><a href="pool2.html" class="in">{{langItem.main}}2</a></li>
+									<li><a href="pool3.html">{{langItem.main}}3</a></li>
+									<li><a href="vaults.html">{{langItem.vaults}}</a></li>
+									<li><a href="nft.html">NFT</a></li>
+									<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+								</ul>
+							</div>
+					<div class="showLangBtn" @click="getLang">LANG&nbsp;<img src="img/down.png" alt="" width="10"></div>
+
+					<div class="nav_mobile" v-show="showNav">
+						<div class="bg">
+							<ul>
+								<li v-for="(value,index) in langList" @click="changeLang(index)">{{value}}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<a href="index.html" class="logoMin"><img src="img/logo-min.png" alt="" width="150"></a>
+				<div class="pc_logo">
+					<img src="img/youxi-logo.png" width="100" class="img_in">
+					<h1 id="title_h1">{{langItem.welcome}}{{langItem.main}}2</h1>
+				</div>	
+				<div class="logo">
+					<img src="img/youxi-logo.png" width="100" class="img_in">
+					<h1 id="title_h1">{{langItem.innovaWelcome}}{{langItem.main}}2</h1>
+				</div>
+
+			</div>
+
+
+		</div>
+			<div class="nav_mobile" v-show="showNav">
+				<div class="bg">
+					<ul>
+						<li v-for="(value,index) in langList" @click="changeLang(index)">{{value}}</li>
+					</ul>
+				</div>
+			</div>
+		<div class="numeBox" id="slider">
+			<i onclick="document.getElementById('slider').classList.remove('closed');"></i>
+			<ul>
+				<li> <a href="index.html">{{langItem.index}}</a></li>
+				<li><a href="pool1.html">{{langItem.main}}1</a></li>
+				<li><a href="pool2.html">{{langItem.main}}2</a></li>
+				<li><a href="pool3.html">{{langItem.main}}3</a></li>
+				<li><a href="vaults.html">{{langItem.vaults}}</a></li>
+				<li><a href="nft.html">NFT</a></li>
+				<li><a :href="langs+'.pdf'" target="_blank">{{langItem.whiteBook}}</a></li>
+			</ul>
+		</div>
+		<!--header end-->
+		<div class="biList" style="margin:40px auto;float: inherit;">
+			<div class="logo-bi" ><img src="img/HYFI.png" alt="" width="30"  class="bi_img"> x <img src="img/HTYFI.png" alt="" width="25" class="bi_img"></div>
+			<h2> HYFI x USDT - HTYFI</h2>
+			<h3>{{langItem.deposit}}HYFI LP{{langItem.picking}} HTYFI</h3>
+			<h4>{{langItem.num}}：30000HTYFI</h4>
+			<a href="pool1Zone.html?type=HYFI" class="a_go_HTYFI">{{langItem.kuang}}</a>
+			<p style="  margin-top: 10px;">{{langItem.contracts}}：<a class="go_contracts" href="https://scan.hecochain.com/address/0x160a90224d9126973edbe9116dd1bdcb19247bcb#contracts">{{ changeToStar('0x160a90224d9126973edbe9116dd1bdcb19247bcb',10,5) }} </a></p>
+
+		</div>
+		<div style="clear: both;"></div>
+		<div class="bottom">
+			<div>
+				<a href="https://twitter.com/Hecoyearn"><img src="img/defi_3.png" width="20"> </a>
+				<a href="https://t.me/hecoyearnfinance"><img src="img/defi_4.png" width="20"></a>
+				<a href="https://www.facebook.com/Capsule-Protocol-108231297757157/"><img src="img/defi_5.png"
+						width="20"> </a>
+		</div>
+	</div>
+</body>
+
+</html>
+<script>document.write('<script src="rev/max_all.js?t=' + new Date().getTime() + '"><\/script>')</script>

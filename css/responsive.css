@@ -1,0 +1,178 @@
+@media screen and (min-width:750px){
+	.header{
+		/* max-width: 750px; */
+		margin: 0 auto;
+	}
+	.pc-nav,.pc_logo,.qd_pc{
+		display: inline-block;
+	}
+	.numeBox,.showNavBtn,.logo,.qd{display: none;}
+	.logoMin{margin-top: 4px;margin-left: 6px;}
+	.head_box{    padding-top: 70px;}
+	.logoMin img{width: 250px !important;}
+	.showLangBtn{top: 25px;right: 20px;}
+	.pc-nav ul{
+		position: absolute;
+		right: 120px;
+		top: 20px;
+	}
+	.pc-nav li{
+		float: left;
+    font-size: 18px;
+    padding: 4px 10px;
+    margin: 0 5px;
+	}
+	.pc-nav li a{
+		color: #fff;
+	}
+	.pc-nav li a.in{
+		color: #00daff;
+		border-bottom: 1px solid #00daff;
+	}
+	.web{
+		max-width: 1440px;
+	}
+	.area{
+		width: 315px;
+		float: left;
+		margin: 20px;
+		border-radius: 10px;
+		border:2px solid #9b68ff;
+		padding: 60px 0 80px;
+		background-position: center !important;
+	}
+	.area h4{ 
+		font-size: 18px;
+		margin-top: 10px;
+	}
+	.area4{    padding: 60px 0 63px !important;}
+	.area4 .price{font-size: 26px;}
+	.area.area4 .img_in{
+		width: 170px !important;
+	}
+	.area .img_in{
+		width: 100px !important;
+	}
+	.area .btn{margin-top: 30px;}
+	.price {
+		font-size: 24px;
+		margin-top: 20px;
+	}
+	.cont,.cont .bottom{
+		clear: both;
+	}
+	.cont{
+		background: #0c0b17;
+		border-radius: 20px;
+	}
+	.cont .col{
+		width: 30%;
+    margin-top: 30px;
+		float: left;
+	}
+	.cont .col h2{font-size: 28px;padding: 0 50px;}
+	.cont .col h2::before, .cont .col h2::after{
+		width: 25px;
+		height: 23px;
+		top:9px;
+	}
+	.cont .img_in{
+		margin-top: 30px;
+	}
+	.cont .one{
+		width: 120px !important;
+	}
+	.cont .two{
+		width: 200px !important;
+	}
+	.cont .tree{
+		width:120px !important;
+	}
+	.cont .col h1{
+		font-size: 32px;
+		margin: 30px;
+	}
+	.cont .col p{
+		font-size: 16px;
+		line-height: 36px;
+	}
+	.liu{
+		height: 100px;
+		margin: -15px 0 40px;
+	}
+	.liu p{
+		font-size: 50px;
+	}
+	.zong{
+		font-size: 28px;
+		margin-bottom: 75px;
+	}
+	.liu::after{
+		width: 120px;
+    margin-left: -60px;
+    bottom: 12px;
+	}
+	.bottom img{
+		margin: 0 20px;
+		width: 40px !important;
+	}
+
+	/* 首页结束 */
+	.biList{
+		float: left;
+		width: 430px;
+		margin: 60px 20px 0;
+	}
+	.biList .a_go_HTYFI{font-size: 24px;margin-bottom: 20px;}
+	.biList h2{font-size: 24px;}
+	.biList h3{font-size: 18px;margin: 10px 0;}
+	.biList h4{font-size: 18px;}
+	.biList p{font-size: 18px;}
+	.buy,.info{
+		width: 44%;
+    height: 576px;
+    float: left;
+    margin: 60px 2%;
+    padding: 34px 39px;
+	}
+	.slet .name{
+		font-size: 30px;
+	}
+	.slet{height: 90px;}
+	.slet .balance .txt{font-size: 16px;line-height: 2.5;}
+	.slet .balance .num{
+		font-size: 30px;
+		margin: 13px 0 0;
+	}
+	.buy h1{font-size: 18px;}
+	.put input{
+		height: 50px;
+		font-size: 28px;
+	}
+	.put button{    height: 50px;font-size: 20px;}
+	.buyBtn1{    height: 50px;    line-height: 50px;font-size: 20px;}
+	.info h2{
+		font-size: 28px;
+
+	}
+	.info li{
+		margin-bottom: 31px;
+		font-size: 20px;
+	}
+	.info li span{
+		font-size: 24px;
+	}
+	#title_h1{margin-bottom: 40px !important;}
+	.pc_logo .txt,.logo_pool .txt{
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+	.qd_pc{
+		width: 50%;
+		transform: translate(50%,20%);
+    /* margin: 19% 0 0 25%; */
+	}
+	.slet button{
+		font-size: 20px;
+	}
+}
